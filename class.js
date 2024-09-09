@@ -1,13 +1,11 @@
-
 class EventEmitter {
     constructor(events = {}) {
         this.events = events;
     }
-
     on(eventName, fn) {
         const event = this.events[eventName];
         if (event) event.push(fn)
-        this.events[eventName] = [fn];
+        else {this.events[eventName] = [fn];}
     };
 
     emit(eventName, ...data) {
@@ -54,15 +52,12 @@ class EventEmitter {
         if(!event) this.on(name,fn)
         event.unshift(fn);
     };
-
-    removeAllListeners(eventName){
-        if(eventName) this.events[eventName] = [];
-        else { Object.keys(this.events).forEach(event => {
-            this.events[event] = [];
-        });}
-
-    };
-
+    removeAllListeners(name) {
+        if(name) this.events[name] = []
+        else{
+            Object.keys(this.events).forEach(name => this.events[name] = [])
+        }
+    }
 }
 
 module.exports = EventEmitter;

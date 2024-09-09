@@ -1,16 +1,14 @@
 {
   "name": "event-emitter",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "test:class": "set EVENT_EMITTER_PATH=./class.js && node test.js",
-    "test:constructors": "set EVENT_EMITTER_PATH=./constructors.js && node test.js",
-    "test:closures": "set EVENT_EMITTER_PATH=./closures.js && node test.js"
+    "test:closures": "set EVENT_EMITTER_PATH=./closures.js && node test.js",
+    "test:prototypes": "set EVENT_EMITTER_PATH=./prototypes.js && node test.js"
 
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  "private": true
 }

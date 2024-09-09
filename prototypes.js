@@ -64,16 +64,13 @@ EventEmitter.prototype.prependListener = function(name, fn) {
     } else {
         event.unshift(fn);
     }
-
-    EventEmitter.prototype.removeAllListeners = function(name) {
-        if (name) {
-                this.events[name] = [];
-        } else {
-            Object.keys(this.events).forEach(event => {
-                this.events[event] = [];
-            });
-        }
-    };
 };
+
+EventEmitter.prototype.removeAllListeners  =  function(name) {
+    if(name) this.events[name] = [];
+    else{
+        Object.keys(this.events).forEach(name => this.events[name] = []);
+    }
+}
 
 module.exports = EventEmitter;

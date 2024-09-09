@@ -36,6 +36,7 @@ function EventEmitter() {
         }
     }
 
+
     function clear(name) {
         if (!name) {
             Object.keys(events).forEach(key => delete events[key]);
@@ -72,14 +73,11 @@ function EventEmitter() {
     }
 
     function removeAllListeners(name) {
-        if (name) events[name] = [];
-        else {
-            Object.keys(events).forEach(event => {
-                events[event] = [];
-            });
+        if(name) events[name] = [];
+        else{
+            Object.keys(events).forEach(name => events[name] = []);
         }
     }
-
 
     return {
         on,
